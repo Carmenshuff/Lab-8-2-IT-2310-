@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Interactive Page</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        main {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        input {
+            width: 80%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #333;
+        }
+
+        button {
+            background-color: #0078d7;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #005ea6;
+        }
+
+        #greeting {
+            font-size: 22px;
+            color: green;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        #counter {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        footer {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>My Interactive Page</h1>
+    </header>
+
+    <main>
+        <h2>Enter Your Name</h2>
+
+        <label for="nameInput">Name:</label>
+        <br><br>
+
+        <input type="text"
+               id="nameInput"
+               placeholder="Type your name here">
+
+        <br><br>
+
+        <button id="greetBtn">Say Hello</button>
+
+        <p id="greeting"></p>
+
+        <p id="counter">Greeting Button Clicks: 0</p>
+    </main>
+
+    <footer>
+        Carmen Huff
+    </footer>
+
+    <script>
+        const nameInput = document.getElementById("nameInput");
+        const greetBtn = document.getElementById("greetBtn");
+        const greeting = document.getElementById("greeting");
+        const counter = document.getElementById("counter");
+
+        let clickCount = 0;
+
+        greetBtn.addEventListener("click", function () {
+
+            const name = nameInput.value;
+
+            if (name === "") {
+                greeting.textContent = "Please enter your name.";
+            } else {
+                greeting.textContent =
+                    "Hello, " + name + "! Welcome to my page.";
+            }
+
+            clickCount++;
+            counter.textContent =
+                "Greeting Button Clicks: " + clickCount;
+        });
+    </script>
+
+</body>
+</html>
